@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
+    protected $guarded=['slug'];
     public function records()
     {
         return $this->hasMany(Record::class);
