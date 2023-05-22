@@ -51,11 +51,11 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.records.index') }}">{{ __('list') }}</a>
+                                <a class="nav-link" href="{{ route('admin.records.index') }}">{{ __('records') }}</a>
                             </li>
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.types.index') }}">{{ __('types') }}</a>
-                            </li> --}}
+                            </li>
                         @endauth
                         </ul>
 

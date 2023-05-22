@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRecordRequest;
 use App\Http\Requests\UpdateRecordRequest;
 use App\Models\Record;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -30,7 +31,8 @@ class RecordController extends Controller
      */
     public function create()
     {
-        return view('admin.records.create');
+        $types=Type::all();
+        return view('admin.records.create', compact('types'));
     }
 
     /**
@@ -71,7 +73,8 @@ class RecordController extends Controller
      */
     public function edit(Record $record)
     {
-        return view('admin.records.edit', compact('record'));
+        $types=Type::all();
+        return view('admin.records.edit', compact('record','types'));
     }
 
     /**

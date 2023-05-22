@@ -35,7 +35,8 @@ class UpdateRecordRequest extends FormRequest
             'record_description' => 'required',
             'completed' => 'required|boolean',
             'image' => 'nullable|image|max:2048',
-            'delete_image' => 'boolean'
+            'delete_image' => 'boolean',
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 }

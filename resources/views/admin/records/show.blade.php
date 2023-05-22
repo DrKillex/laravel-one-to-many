@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <ul class="list-unstyled">
-            <li>title: {{$record->title}}</li>
+            <li><h2>title: {{$record->title}}</h2></li>
+            <li><h3>type: <a href="{{ route('admin.types.show', $record->type) }}">{{ $record->type?->name ?: 'Nessuna tipologia' }}</a></h3></li>
             <li>creation date: {{$record->creation_date}}</li>
             <li>description: {{$record->record_description}}</li>
             <li>completed: {{$record->completed}}</li>

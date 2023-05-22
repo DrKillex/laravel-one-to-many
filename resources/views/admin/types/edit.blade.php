@@ -12,19 +12,16 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('admin.records.update', $record) }}" method="POST" enctype="multipart/form-data"
-                class="form-input-image">
+            <form action="{{ route('admin.records.update', $record) }}" method="POST" enctype="multipart/form-data"  class="form-input-image">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="title" class="form-label">title</label>
-                    <input type="text" class="form-control" id="title" name="title"
-                        value="{{ old('title', $record->title) }}">
+                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $record->title) }}">
                 </div>
                 <div class="mb-3">
                     <label for="creation_date" class="form-label">creation_date</label>
-                    <input type="date" class="form-control" id="creation_date" name="creation_date"
-                        value="{{ old('creation_date', $record->creation_date) }}">
+                    <input type="date" class="form-control" id="creation_date" name="creation_date" value="{{ old('creation_date', $record->creation_date) }}">
                 </div>
                 <div class="mb-3">
                     <label for="record_description" class="form-label">record_description</label>
@@ -33,40 +30,26 @@
                 <div class="mb-3">
                     <label for="completed" class="form-label">is completed?</label>
                     <select name="completed" id="completed">
-                        <option value="" {{ old('completed', $record->completed) == null ? 'selected' : '' }}>choose
-                        </option>
-                        <option value="1" {{ old('completed', $record->completed) == '1' ? 'selected' : '' }}>yes
-                        </option>
-                        <option value="0" {{ old('completed', $record->completed) == '0' ? 'selected' : '' }}>no
-                        </option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="type_id" class="form-label">type</label>
-                    <select class="form-select" name="type_id" id="type_id">
-                        <option value="">Select type</option>
-                        @foreach ($types as $type)
-                            <option value="{{ $type->id }}" {{ old('type_id', $record->type_id) == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
-                        @endforeach
+                        <option value="" {{ old('completed', $record->completed) == null ? 'selected' : '' }}>choose</option>
+                        <option value="1" {{ old('completed', $record->completed) == '1' ? 'selected' : '' }}>yes</option>
+                        <option value="0" {{ old('completed', $record->completed) == '0' ? 'selected' : '' }}>no</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
 
                     <div class="preview">
-                        <img id="image-preview"
-                            @if ($record->image) src="{{ asset('storage/' . $record->image) }}" @endif>
+                        <img id="image-preview" @if($record->image) src="{{ asset('storage/' . $record->image) }}" @endif>
                     </div>
-
-
+             
+        
                     <label for="image" class="form-label">Image</label>
                     <input class="form-control" type="file" id="image" name="image">
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" value="1" id="delete_image"
-                        name="delete_image">
+                    <input class="form-check-input" type="checkbox" role="switch" value="1" id="delete_image" name="delete_image">
                     <label class="form-check-label" for="delete_image">delete image</label>
-                </div>
+                  </div>
                 <button type="submit" class="btn btn-primary">edit</button>
             </form>
         </div>
